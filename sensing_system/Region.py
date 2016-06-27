@@ -11,6 +11,10 @@ class Region(object):
         self.saveStatus = False
         self.devices = []  # connect to the data hierarchy
         self.regions = []  # point to the belonged region object
+        self.top = None
+        self.right = None
+        self.bottom = None
+        self.left = None
         Region.checkRegion.append(self)    # in convenient of the add of class
 
     def addRegionobject(self, regionInput):
@@ -56,5 +60,19 @@ class Region(object):
     def getSaveStatus(self):
         return self.saveStatus
 
+    def getPosition(self):
+        ret = []
+        ret.append(self.top)
+        ret.append(self.right)
+        ret.append(self.bottom)
+        ret.append(self.left)
+        return ret
+
     def setStatusTrue(self):
         self.saveStatus = True
+
+    def setPosition(self, top=None, right=None, bottom=None, left=None):
+        self.top = top
+        self.right = right
+        self.bottom = bottom
+        self.left = left
